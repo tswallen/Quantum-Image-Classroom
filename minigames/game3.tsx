@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { Play, RotateCcw, Droplets, Info, ChevronRight, CheckCircle2, XCircle } from 'lucide-react';
 

@@ -2,14 +2,21 @@
   "name": "quantum-image-classroom",
   "private": true,
   "version": "0.1.0",
-  "type": "module",
+  "type": "commonjs",
+  "main": "electron/main.js",
   "scripts": {
     "start": "vite",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"npm:frontend\" \"npm:electron\"",
+    "frontend": "vite",
+    "electron": "wait-on http://localhost:5173 && electron .",
+    "build:app": "npm run build && electron-builder",
+    "package:win": "npm run build && electron-builder --win --x64"
   },
   "dependencies": {
+    "electron-is-dev": "^2.0.0",
     "lucide-react": "^1.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
@@ -20,9 +27,28 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.4.27",
+    "concurrently": "^8.2.1",
+    "electron": "^26.1.4",
+    "electron-builder": "^24.6.0",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.4.5",
+    "wait-on": "^7.0.1",
     "vite": "^8.0.3"
+  },
+  "build": {
+    "appId": "com.quantum.imageclassroom",
+    "productName": "Quantum Image Classroom",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    }
   }
 }
