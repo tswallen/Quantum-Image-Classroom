@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import GoldenCipher from './game1';
 import WordFillIn from './game2';
 import TempleOfLogic from './game3';
-import MathJumper from './game4';
+import MathJumper from './game4Component';
 
 const SLIDES = [
   { title: 'Cipher of Angkor', Component: GoldenCipher },
