@@ -1,10 +1,12 @@
 import React, { useState, useCallback } from 'react';
+import IntroVideo from './IntroVideo';
 import GoldenCipher from './game1';
 import WordFillIn from './game2';
 import TempleOfLogic from './game3';
 import MathJumper from './game4';
 
 const SLIDES = [
+  { title: 'Intro Video', Component: IntroVideo },
   { title: 'Cipher of Angkor', Component: GoldenCipher },
   { title: 'Fill in the Story', Component: WordFillIn },
   { title: 'Temple of Logic', Component: TempleOfLogic },
